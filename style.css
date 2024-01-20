@@ -1,14 +1,15 @@
 :root {
     --box-shadow-normal: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 
-    --font-size-big: 36px;
+    --font-size-big: 46px;
     --font-weight-big: 800;
     --font-weight-normal: 600;
     --font-weight-small: 500; 
 
-    --font-size-normal: 20px;
-    --font-size-small: 14px;
-    --font-size-mini: 12px;
+    --font-size-normal-xl: 32px;
+    --font-size-normal: 28px;
+    --font-size-small: 22px;
+    --font-size-mini: 18px;
 }
 
 * {
@@ -92,6 +93,7 @@ body {
         flex-direction: column;
         width: 100%;
         height: 100%;
+
     }
 }
 
@@ -109,7 +111,7 @@ body {
         margin: 0;
     }
     & p {
-        font-size: var(--font-size-big);
+        font-size: var(--font-size-normal);
     }
 }
 
@@ -120,24 +122,26 @@ body {
     align-items: center;
     height: 100%;
 
+    & #_artwork_container_ {
+    }
+
     & img {
         max-width: 100%;
-        max-height: 100%;
         min-width: 50%;
+        max-height: 100%;
         min-height: 100%;
+
+        object-fit: cover;
 
         padding: 0;
         margin: 0;
     }
 }
 
-#_artwork_container_ {
-}
-
 #_form_section_wrapper_ {
     display: flex;
     flex: 3 1 0;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
     flex-wrap: wrap;
 
@@ -154,19 +158,22 @@ form {
     flex: 1 1 0;
     flex-direction: column;
 
+    /*
     background-color: #D0F5BE;
     box-shadow: var(--box-shadow-normal);
+    */
 
     border-radius: 5px;
     padding: 20px;
     margin: 0px;
 
-    max-width: 640px;
+    max-width: 768px;
     min-width: 320px;
 }
 
 label {
-    font-size: var(--font-size-small);
+    flex: 1;
+    font-size: var(--font-size-normal);
     font-weight: var(--font-weight-small);
     display: flex;
     flex-direction: column;
@@ -184,7 +191,7 @@ label {
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-normal);
     background-color: burlywood;
-    width: 100px;
+    width: 50%;
 }
 
 input {
@@ -194,8 +201,11 @@ input {
     border-radius: 5px;
     
     border: 0px;
-    height: 30px;
+    height: 50px;
     padding: 5px;
+
+    max-width: 100%;
+    min-width: 100px;
 
     &:focus {
         outline-style:solid;
@@ -209,10 +219,11 @@ input {
 
 textarea {
     font-size: var(--font-size-mini);
+    font-weight: var(--font-weight-small);
 
     box-shadow: var(--box-shadow-normal);
 
-    overflow: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     resize: none;
 
@@ -237,10 +248,12 @@ h1 {
 }
 
 p {
-    font-size: var(--font-size-normal);
+    font-size: var(--font-size-normal-xl);
+    font-weight: var(--font-weight-normal);
     padding: 5px;
     &.reference {
         font-size: var(--font-size-mini);
+        font-weight: var(--font-weight-small);
     }
 }
 
@@ -250,12 +263,32 @@ br {
     content: "";
 }
 
-@media (max-width: 768px) {
+#_main_form_input_ {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 1 1 0; 
+    gap: 10px;
+    & > .input-column {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex: 1 1 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 979px) {
     #_content_wrapper_ {
         #_content_ {
             flex-direction: column;
         }
     }
+
+    #_form_section_wrapper_ {
+        justify-content: center;
+    }
+    
     .reference {
         align-self: flex-start;
     }
