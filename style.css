@@ -1,5 +1,9 @@
 :root {
     --box-shadow-normal: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    --box-shadow-hover: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+
+    --color-button-interact: #e7c893;
+    --color-button-normal: #deb887;
 
     --font-size-big: 46px;
     --font-weight-big: 800;
@@ -142,11 +146,6 @@ form {
     flex: 1 1 768px;
     flex-direction: column;
 
-    /*
-    background-color: #D0F5BE;
-    box-shadow: var(--box-shadow-normal);
-    */
-
     border-radius: 5px;
     padding: 20px;
     margin: 0px;
@@ -175,8 +174,18 @@ label {
     
     font-size: var(--font-size-normal);
     font-weight: var(--font-weight-normal);
-    background-color: burlywood;
+    background-color: var(--color-button-normal);
     width: 50%;
+}
+
+#submit:focus {
+    background-color: var(--color-button-interact);
+}
+
+#submit:hover {
+    box-shadow: var(--box-shadow-hover);
+    background-color: var(--color-button-interact);
+    transform: translateY(-1px);
 }
 
 input {
